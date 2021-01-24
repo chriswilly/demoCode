@@ -1,4 +1,4 @@
 # demoCode
  hola, mundo :)
- ~public repo to demo code tools like plotting & math problems~
+ public repoository to demonstrate code tools like plotting & math problems
 
