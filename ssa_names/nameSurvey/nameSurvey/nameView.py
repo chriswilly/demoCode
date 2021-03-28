@@ -11,7 +11,9 @@ class nameView:
         self.files = self.file_list(self.directory,'desc')
 
 
-    def file_path(self,subdirectory:str = 'data/names', level:int = 1):
+    def file_path(self,
+                  subdirectory:str = 'data/names', 
+                  level:int = 1):
         self.directory = Path(os.path.abspath(__file__)).parents[level] / subdirectory #look for data dir one level up
         print(self.directory)
         # print(os.listdir(self.directory))
@@ -52,6 +54,9 @@ class nameView:
             indx = np.asarray(years>=year[0],dtype=bool) & np.asarray(years<=year[1],dtype=bool)
         except:
             indx = np.asarray(years>=year[0],dtype=bool)
+        if indx[indx].shape[0]==0:
+            print('error finding range specified, include full year range')
+            indx = np.ones(years.shape[0],dtype=bool)
 
         indz = np.arange(indx.shape[0])[indx] # set of in range years
         indx = np.zeros(indx.shape[0],dtype=bool) # reset indx
