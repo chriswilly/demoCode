@@ -132,4 +132,5 @@ if __name__ == '__main__':
     names = aa.load_names(args.rank, args.space,
                           args.years, args.skip,
                           args.sex)
+    uniques = np.unique(names['name'])
     # print(names.head())
