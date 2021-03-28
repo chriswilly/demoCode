@@ -77,7 +77,7 @@ class nameView:
             indy = range(rank[0],rank[1],space)
             s = 'all' if sex is None else 'male' if sex == 'M' else 'female'
             print(f'Top {rank[0]} to {rank[1]} {s} names in {yr}')
-            # print(data.iloc[indy])
+            print(data.iloc[indy])
             data['year'] = yr
 
             names = names.append(data.iloc[indy], ignore_index=True)
