@@ -14,6 +14,7 @@ returns rank 8 thru 22 complete from 1926 to 1969 every other year for males
 
 nameView.py
 defaults set to top 12 spaced 1 apart every year since 1972 for both sexes if you call without args, all --args are optional.
+
     % python nameview.py --rank 3 11 --years 1926 1969
 is valid.
 
