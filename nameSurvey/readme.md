@@ -4,7 +4,7 @@ Names data sourced from US SSA
 https://www.ssa.gov/OACT/babynames/limits.html
 
 nameView.py program will display rank name ranges for male, female, or both across a span of years.
-Browse through name set as an alternative to name websites. Goal to add trending, grouping, or recommendation using pandas query in namwFind.py.
+Browse through name set as an alternative to name websites. Goal to add trending, grouping, or recommendation using pandas query in nameFind.py or other module.
 
 
 Use command line argument parsing, eg:
@@ -13,7 +13,10 @@ Use command line argument parsing, eg:
 returns rank 8 thru 22 complete from 1926 to 1969 every other year for males
 
 nameView.py
-defaults set to top 12 spaced 1 apart every year since 1972 for both sexes if you call without args,
+defaults set to top 12 spaced 1 apart every year since 1972 for both sexes if you call without args, all --args are optional.
+
+    % python nameview.py --years 1926 1969 --rank 3 11
+is valid as --args order doesn't matter, but all bracket args need two vals if specified.
 
 years processed in descending order so if skip >1 then final year will be included but initial year may not depending on indexing increments.
 
