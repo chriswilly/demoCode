@@ -9,7 +9,7 @@ class setup:
                  output:str = 'plot_output'):
 
         self.params()
-        self.file_path(output,1)  # self.directory
+        self.file_path(output,2)  # self.directory
 
 
     def plot_name(self,
