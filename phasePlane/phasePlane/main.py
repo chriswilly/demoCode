@@ -1,4 +1,4 @@
-from phasePlane import phasePlot
+from phasePlot import phasePlot
 from lib.plotformat import setup
 """acting unittests file for now"""
 
