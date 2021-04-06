@@ -7,17 +7,17 @@ from pathlib import Path
 class setup:
     def __init__(self,
                  output:str = 'plot_output'):
-
+        self.title = output #.replace(r'plot_output/','')
         self.params()
         self.file_path(output,2)  # self.directory
 
 
     def plot_name(self,
-                  title:str='placeholder',
+                  txt:str='placeholder',
                   extension:str = 'png'):
-
+        print(self.directory,self.title)
         timestamp = datetime.now().strftime("%y%m%d_%H%M%S%f")
-        file = title.replace('/','\\')+'_'+timestamp+f'.{extension}'
+        file = self.title+'_'+txt.replace('/','-')+'_'+timestamp+f'.{extension}'
         return self.directory / file
 
 
@@ -34,7 +34,7 @@ class setup:
 
             except os.error as e:
                 print('err:',e)
-                self.directory = 'temp'
+                self.directory = Path('.')
 
         print(self.directory)
         # print(os.listdir(self.directory))

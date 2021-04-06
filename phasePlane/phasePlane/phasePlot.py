@@ -18,7 +18,8 @@ class phasePlot:
     def __init__(self,
                  function,
                  output:str = 'plot_output'):
-        self.fmt = setup(output)
+        self.title = output.replace('plot_output','')
+        self.fmt = setup(self.title)
         self.function = function
 
 
@@ -27,11 +28,11 @@ class phasePlot:
                     *args:list,
                     **kwargs:dict):
         """ use this as pplane plotting function for given input function """
-        title=''
+        plot_title = self.title
         if kwargs.items():
             # print(kwargs)
             for name,value in kwargs.items():
-                title+=''.join('{0}={1} '.format(name,value))
+                plot_title+=''.join('{0}={1} '.format(name,value))
             a =  itemgetter('a')(kwargs) # map(kwargs.get, ('a'))
         else:
             a=-1/4
@@ -70,10 +71,10 @@ class phasePlot:
                        )
         plt.axis('tight')
         # ax.legend(loc=3)
-        plt.title(title)
+        plt.title(plot_title)
         plt.grid(b=True, which='major', axis='both')
         # plt.show()
-        fig.savefig(self.fmt.plot_name(title,'png'))
+        fig.savefig(self.fmt.plot_name(plot_title,'png'))
 
 #########################
 
