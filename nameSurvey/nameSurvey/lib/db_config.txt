@@ -1,0 +1,7 @@
+## db creds
+[section]
+user = mw
+password = solarflare123
+url = None
+port = 1521
+database = ssa_names

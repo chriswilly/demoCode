@@ -4,13 +4,21 @@ Names data sourced from US SSA
 https://www.ssa.gov/OACT/babynames/limits.html
 
 nameView.py program will display rank name ranges for male, female, or both across a span of years.
-Browse through name set as an alternative to name websites. Goal to add trending, grouping, or recommendation using pandas query in nameFind.py or other module.
+
+nameFind.py is demo to call class
+
+build_db.py constructed the sqlite dbs in ./tests
+N
+ame set as alternative to websites. Goal to add trending, grouping, or matching with pandas query.
 
 
 Use command line argument parsing, eg:
 
     % python nameview.py --rank 8 22 --space 1 --years 1926 1969 --skip 2 --sex M
 returns rank 8 thru 22 complete from 1926 to 1969 every other year for males
+
+% python nameview.py --rank 0 -1 --years 1998 2001 --skip 3 --sex M
+returns rank 0 thru max complete from 1999 to 2001 every three years for males
 
 nameView.py
 defaults set to top 12 spaced 1 apart every year since 1972 for both sexes if you call without args, all --args are optional.
@@ -27,7 +35,7 @@ Files within 'data/names' are yobYYYY.txt format "name,sex,number".
 
 # terminal commands
     usage: nameview.py [-h] [--rank lower bound upper bound] [--space [rank spacing]] [--years year start year end]
-    
+
                    [--skip [year spacing]] [--sex [M/F/B]]
 
 
@@ -39,17 +47,17 @@ Files within 'data/names' are yobYYYY.txt format "name,sex,number".
       -h, --help            show this help message and exit
 
       --rank lower bound upper bound
- 
+
                            popularity starting and ending position, lower is more popular
- 
+
      --space [rank spacing]
 
                             rank spacing: 0,1,2..., 0,2,4...
- 
+
      --years year start year end
 
                             date range years
- 
+
      --skip [year spacing]
 
                             year spacing: 1999, 2000, 2001,... 1998, 2000, 2002,...

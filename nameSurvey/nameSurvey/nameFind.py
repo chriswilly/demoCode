@@ -2,13 +2,14 @@ import pandas as pd
 import numpy as np
 
 from nameView import nameView
-
+# from lib.dbutil import dbutil
 
 def params():
     d = {
-         'olden':((0,6),1,(1890,1945),5,'M'),
-         'midcentury':((0,6),1,(1946,1999),5,'M'),
+         # 'olden':((0,6),1,(1890,1945),5,'M'),
+         # 'midcentury':((0,6),1,(1946,1999),5,'M'),
          # 'comprehensive':((0,6),1,(0,0),3,'M'),
+         'exhaustive':((0,-1),100,(1988,1989),1,None)
          }
     return d
 

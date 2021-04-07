@@ -12,7 +12,7 @@ class nameView:
 
 
     def file_path(self,
-                  subdirectory:str = 'data/names', 
+                  subdirectory:str = 'data/names',
                   level:int = 1):
         self.directory = Path(os.path.abspath(__file__)).parents[level] / subdirectory #look for data dir one level up
         print(self.directory)
@@ -73,17 +73,24 @@ class nameView:
                 print('all sexes included')
                 pass
 
-            data.drop(columns='sex',inplace=True)
+            # data.drop(columns='sex',inplace=True)  # keep
             data.sort_values(by=['number'],inplace=True, ascending=False)
             data.reset_index(drop=True,inplace=True)
 
             # print(data.head())
             yr = strip(file)
-            indy = range(rank[0],rank[1],space)
-            s = 'all' if sex is None else 'male' if sex == 'M' else 'female'
-            print(f'Top {rank[0]} to {rank[1]} {s} names in {yr}')
-            print(data.iloc[indy])
             data['year'] = yr
+
+            min = 0 if (rank[0] <= -1 or rank[0] >= data.shape[0]) else rank[0]
+            max = data.shape[0] if (rank[1] == -1 or rank[1] >= data.shape[0]) else rank[1]
+            # print(min, max)
+            indy = np.arange(min,max,space)
+
+            s = 'all' if sex is None else 'male' if sex == 'M' else 'female'
+
+            print(f'Top {min} to {max} {s} names in {yr}')
+
+            print(data[['name','number','year']].iloc[indy])
 
             names = names.append(data.iloc[indy], ignore_index=True)
         return names
