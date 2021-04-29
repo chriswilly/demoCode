@@ -9,7 +9,7 @@ class setup:
                  output:str = 'plot_output'):
         self.title = output #.replace(r'plot_output/','')
         self.params()
-        self.file_path(output,2)  # self.directory
+        self.file_path(output.strip(),3)  # self.directory
 
 
     def plot_name(self,
@@ -33,7 +33,7 @@ class setup:
                 os.mkdir(self.directory)
 
             except os.error as e:
-                print('err:',e)
+                print('error:',e)
                 self.directory = Path('.')
 
         print(self.directory)
@@ -48,5 +48,6 @@ class setup:
         mpl.rcParams['ytick.labelsize'] = 30
         mpl.rcParams['lines.linewidth'] = 2.8
         mpl.rcParams['lines.markersize'] = 18
+        mpl.rcParams['lines.markeredgewidth'] = 3
         mpl.rcParams['legend.framealpha'] = 0.93
         mpl.rcParams['legend.fontsize'] = 32
