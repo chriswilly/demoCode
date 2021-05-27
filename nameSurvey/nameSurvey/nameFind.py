@@ -6,10 +6,10 @@ from nameView import nameView
 
 def params():
     d = {
-         # 'olden':((0,6),1,(1890,1945),5,'M'),
-         # 'midcentury':((0,6),1,(1946,1999),5,'M'),
-         # 'comprehensive':((0,6),1,(0,0),3,'M'),
-         'exhaustive':((0,-1),100,(1988,1989),1,None)
+         'olden':((0,11),1,(1890,1945),5,'M'),
+         'midcentury':((0,11),1,(1946,1999),5,'M'),
+         'comprehensive':((0,11),1,(0,0),3,'M'),
+         'exhaustive_1yr':((0,-1),100,(1988,1989),1,None)
          }
     return d
 
@@ -23,6 +23,6 @@ if __name__ == '__main__':
     # a = np.unique(test1['name'])
 
     print('\nunique names per set: ')
-    [print('unique names in ',key,': ',
+    [print('unique names from ',vals[2][0],'to',vals[2][1],': ',
             np.unique(bb.load_names(*vals)['name']).shape[0])
             for key,vals in d.items() ]

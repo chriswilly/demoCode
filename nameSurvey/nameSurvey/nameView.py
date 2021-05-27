@@ -38,7 +38,8 @@ class nameView:
                    space:int = 1,
                    year:tuple = (1972,),
                    skip:int = 1,
-                   sex:str = None):
+                   sex:str = None,
+                   letter:str = None):
         """"""
         # clean intervals to non zero
         space = 1 if space <= 0 else space
@@ -87,8 +88,12 @@ class nameView:
             indy = np.arange(min,max,space)
 
             s = 'all' if sex is None else 'male' if sex == 'M' else 'female'
-
-            print(f'Top {min} to {max} {s} names in {yr}')
+            if letter:
+                indv = data['name'].str.startswith(letter)
+                print(f'Top {min} to {max} {s} names that start with {letter} in {yr} (absolute rank index)')
+                data = data.loc[indv]
+            else:
+                print(f'Top {min} to {max} {s} names in {yr}')
 
             print(data[['name','number','year']].iloc[indy])
 
@@ -131,6 +136,11 @@ if __name__ == '__main__':
                         help='F = Female, M = Male, None = Both',
                         default=None)  #const=None
 
+    parser.add_argument('--letter', metavar='A,B,...Z',
+                        type=str, nargs='?',
+                        help='beginning letter of name',
+                        default=None)  #c
+
 
     args = parser.parse_args()
     # print(args)
@@ -138,6 +148,6 @@ if __name__ == '__main__':
     aa = nameView()
     names = aa.load_names(args.rank, args.space,
                           args.years, args.skip,
-                          args.sex)
+                          args.sex, args.letter)
     uniques = np.unique(names['name'])
     # print(names.head())

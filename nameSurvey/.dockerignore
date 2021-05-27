@@ -1,0 +1,16 @@
+# Ignore everything
+**
+
+# Allow files and directories
+!/setup.py
+!/__init__.py
+!/data/**
+!/nameSurvey/**
+!/requirements.txt
+
+
+# Ignore unnecessary files inside allowed directories
+# This should go after the allowed directories
+**/*~
+**/*.
+**/tests

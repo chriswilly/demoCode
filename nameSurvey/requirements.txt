@@ -1,0 +1,16 @@
+setuptools
+pathlib
+datetime
+argparse
+configparser
+requests
+# sqlite3
+# csv
+pandas
+numpy
+# stmplib
+# email.mime.multipart
+# email.mime.base
+# email.mime.text
+# email.utils
+# email
