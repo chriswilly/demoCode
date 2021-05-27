@@ -1,3 +1,23 @@
+# new example with startswith letter
+    % python Nameview.py --year 1969 2019 --sex M --rank 0 10 --skip 8  --letter M
+
+    Top 0 to 20 male names that start with M in 2019 (absolute rank index)
+             name  number  year
+    8       Mason   11408  2019
+    13    Michael   10514  2019
+    22    Matthew    9199  2019
+    25      Mateo    8962  2019
+    57   Maverick    5729  2019
+    74      Miles    4840  2019
+    109     Micah    3461  2019
+    136       Max    2735  2019
+    143     Myles    2634  2019
+    146   Maxwell    2617  2019
+    155    Maddox    2463  2019
+    ...
+
+
+
 # nameView.py
 
 Names data sourced from US SSA
