@@ -5,4 +5,5 @@
 **/lib/webutil.py
 **/lib/dbconfig.txt
 **/Dockerfile
+**/.dockerignore
 **/requirements
